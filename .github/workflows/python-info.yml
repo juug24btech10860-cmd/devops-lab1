@@ -1,0 +1,25 @@
+name: Python Version and Date
+
+on:
+  push:
+  pull_request:
+  # uncomment the next lines to allow manual runs from the Actions tab
+  # workflow_dispatch: {}
+
+jobs:
+  show-info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Print Python version
+        run: python --version
+
+      - name: Print current date
+        run: date
